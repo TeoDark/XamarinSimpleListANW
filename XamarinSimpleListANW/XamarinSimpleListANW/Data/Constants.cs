@@ -9,6 +9,7 @@ namespace XamarinSimpleListANW.Data
     public static class Constants
     {
         // constants that are here are here only because I didn't know if it's ok to create new class for them
+
         // GitHub specific:
         public readonly static Uri gitHubRepositoryUri = new Uri(@"https://api.github.com/users/xamarin/repos");
         public readonly static string gitHubHost = "api.github.com";

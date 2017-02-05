@@ -54,7 +54,7 @@ namespace XamarinSimpleListANW.Pages
                 repositories = response as List<Repository>;
                 listView.ItemsSource = repositories; // not implementing INotifyPropertyChanged today
             }
-            catch(Exception ex)
+            catch(Exception ex) //try-catch implementd because of lack of proper expection hendling
             {
                 await DisplayAlert("Error",ex.Message,"Ohh");
             }

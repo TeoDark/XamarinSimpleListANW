@@ -12,37 +12,21 @@ namespace XamarinSimpleListANW.Pages
 
     public class DetailViewPage : ContentPage
     {
-        Repository repository;
-        Font font = Font.SystemFontOfSize(NamedSize.Medium);
-        double fontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
-
         Label name = new Label() { Text = "Repository name:", FontAttributes = FontAttributes.Bold };
         Label authorLogin = new Label() { Text = "Author login :", FontAttributes = FontAttributes.Bold };
         Label html = new Label() { Text = "URL:", FontAttributes = FontAttributes.Bold };
         Label watchers = new Label() { Text = "Watchers:", FontAttributes = FontAttributes.Bold };
 
-        Label nameValue = new Label() { };
-        Label authorLoginValue = new Label() { };
-        Label htmlValue = new Label() { };
-        Label watchersValue = new Label() { };
+        Label nameValue = new Label();
+        Label authorLoginValue = new Label();
+        Label htmlValue = new Label();
+        Label watchersValue = new Label();
 
         public DetailViewPage(Repository repo)
         {
-            repository = repo;
+            ChangeFontLabelsSize();
 
-            name.FontSize = fontSize;
-            nameValue.FontSize = fontSize;
-            authorLogin.FontSize = fontSize;
-            authorLoginValue.FontSize = fontSize;
-            html.FontSize = fontSize;
-            htmlValue.FontSize = fontSize;
-            watchers.FontSize = fontSize;
-            watchersValue.FontSize = fontSize;
-
-            nameValue.Text = repo.name;
-            authorLoginValue.Text = repo.owner.login;
-            htmlValue.Text = repo.html_url;
-            watchersValue.Text = repo.watchers_count.ToString();
+            SetLabelsTextUsingRepository(repo);
 
             Content = new StackLayout
             {
@@ -57,6 +41,28 @@ namespace XamarinSimpleListANW.Pages
                     new StackLayout {Children = {watchers, watchersValue}, Orientation = StackOrientation.Horizontal }
                 }
             };
+        }
+
+        private void SetLabelsTextUsingRepository(Repository repo)
+        {
+            nameValue.Text = repo.name;
+            authorLoginValue.Text = repo.owner.login;
+            htmlValue.Text = repo.html_url;
+            watchersValue.Text = repo.watchers_count.ToString();
+        }
+
+        private void ChangeFontLabelsSize()
+        {
+            double fontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
+
+            name.FontSize = fontSize;
+            nameValue.FontSize = fontSize;
+            authorLogin.FontSize = fontSize;
+            authorLoginValue.FontSize = fontSize;
+            html.FontSize = fontSize;
+            htmlValue.FontSize = fontSize;
+            watchers.FontSize = fontSize;
+            watchersValue.FontSize = fontSize;
         }
     }
 }
