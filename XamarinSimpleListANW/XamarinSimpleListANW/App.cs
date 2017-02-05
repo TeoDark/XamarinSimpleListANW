@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Xamarin.Forms;
+using XamarinSimpleListANW.Pages;
 
 namespace XamarinSimpleListANW
 {
@@ -12,22 +13,7 @@ namespace XamarinSimpleListANW
         public App()
         {
             // The root page of your application
-            var content = new ContentPage
-            {
-                Title = "XamarinSimpleListANW",
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
-
-            MainPage = new NavigationPage(content);
+            MainPage = new NavigationPage(new ListViewPage());
         }
 
         protected override void OnStart()
